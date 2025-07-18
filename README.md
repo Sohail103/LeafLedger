@@ -45,7 +45,9 @@
 
 - Open [http://localhost:3000](http://localhost:3000) in your browser.
 - On the landing page, click on the LeafLedger logo to continue to the main screen
-- Verified working hedera topic ID: 0.0.6370391 (https://hashscan.io/testnet/topic/0.0.6370391)
+- Verified working hedera topic ID: ```0.0.6370391``` (https://hashscan.io/testnet/topic/0.0.6370391)
+- After logging a few transactions, click "Calculate net amounts" to fetch all topic messages and see the net amount spent by each participant.
+- Note: If you're using the topic ID ```0.0.6370391``` as I've given, there may already be a few transactions that I put in for testing. 
 
 ## Tech Stack
 
@@ -95,6 +97,9 @@ The transactions can then be collected and parsed after the fest to compute the 
 
 - a better UI
 - facility to automatically collect transactions from the hedera mirror node REST APIs and calculate net amount owed to each student (completed and added the feature)
+
+### Transaction summary feature:
+LeafLedger can now query Hedera topics and fetch all logged transactions. These are parsed and displayed in a table showing how much each individual has contributed, allowing organizers to calculate reimbursements quickly and transparently all in one place. This feature was implemented using the hedera mirror node REST API accessed through the hedera SDK.
 
 ## Transaction flow
 
