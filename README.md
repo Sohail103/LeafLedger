@@ -1,4 +1,4 @@
-# College Fest Ledger (FinTech Hackathon Submission)
+# LeafLedger (FinTech Hackathon Submission)
 
 ## Setup
 
