@@ -69,5 +69,3 @@ Hedera was chosen for several reasons:
 - **Transparency**: The public ledger enables all stakeholders to verify entries, increasing trust and accountability.
 - **Developer-Friendly SDK**: Hedera provides a straightforward JavaScript SDK, allowing easy integration with minimal overhead.
 - **Free Testing Environment**: The Hedera testnet supports development and testing without requiring real currency or fees.
-
-By using Hedera, we were able to implement a simple but trustworthy public record system that reflects the principles of openness and collaboration we wanted for this fest.
