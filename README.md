@@ -71,6 +71,8 @@ Hedera was chosen for several reasons:
 - **Developer-Friendly SDK**: Hedera provides a straightforward JavaScript SDK, allowing easy integration with minimal overhead.
 - **Free Testing Environment**: The Hedera testnet supports development and testing without requiring real currency or fees.
 
+The transactions can then be collected and parsed after the fest to compute the net amount of money spent by each student and reimbursements to be paid.
+
 ## Transaction flow
 
 ![transaction-flow](transaction-flow.png)
