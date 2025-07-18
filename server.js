@@ -7,6 +7,8 @@ const {
     PrivateKey,
     AccountId,
     TopicMessageSubmitTransaction,
+    TopicId, // Add this import
+    TopicCreateTransaction,
 } = require("@hashgraph/sdk");
 
 const app = express();
@@ -31,7 +33,7 @@ app.post("/api/submit", async (req, res) => {
     };
     try {
         const send = await new TopicMessageSubmitTransaction({
-            topicId,
+            topicId: TopicId.fromString(topicId), // <-- Fix here
             message: JSON.stringify(txn),
         }).execute(client);
         const receipt = await send.getReceipt(client);
@@ -40,6 +42,17 @@ app.post("/api/submit", async (req, res) => {
                 ? `Transaction submitted at ${receipt.consensusTimestamp.toString()}`
                 : "Transaction submitted!",
         });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
+app.post("/api/create-topic", async (req, res) => {
+    try {
+        const tx = await new TopicCreateTransaction().execute(client);
+        const receipt = await tx.getReceipt(client);
+        const topicId = receipt.topicId.toString();
+        res.json({ topicId });
     } catch (err) {
         res.status(500).json({ message: err.message });
     }

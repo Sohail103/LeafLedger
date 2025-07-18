@@ -76,3 +76,18 @@ footer {
     color: #2b7a78;
     font-weight: bold;
 }
+
+/* Additional styles for the button in the Topic ID section */
+button {
+    background: #2b7a78;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 1rem;
+    /* Add margin-top for spacing */
+}
+
+button:disabled {
+    background: #3a5068;
+    cursor: not-allowed;
+}
