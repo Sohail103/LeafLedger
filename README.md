@@ -1,4 +1,4 @@
-# College Fest Ledger (Hedera Hackathon Submission)
+# College Fest Ledger (FinTech Hackathon Submission)
 
 ## Setup
 
