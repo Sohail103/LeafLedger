@@ -74,3 +74,7 @@ Hedera was chosen for several reasons:
 ## Transaction flow
 
 ![transaction-flow](transaction-flow.png)
+
+## Overall project structure
+
+![project-structure](mermaid-chart-project-structure.png)
