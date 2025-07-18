@@ -1,11 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./hedera-theme.css";
+import LoadingScreen from "./LoadingScreen";
 
 function App() {
   const [topicId, setTopicId] = useState("");
   const [form, setForm] = useState({ from: "", to: "", amount: "", note: "" });
   const [loading, setLoading] = useState(false);
   const [submitMsg, setSubmitMsg] = useState("");
+  const [showLoader, setShowLoader] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowLoader(false), 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Submit transaction to backend
   const submitTransaction = async (e) => {
@@ -49,6 +56,8 @@ function App() {
     }
     setLoading(false);
   };
+
+  if (showLoader) return <LoadingScreen />;
 
   return (
     <div className="hedera-app">

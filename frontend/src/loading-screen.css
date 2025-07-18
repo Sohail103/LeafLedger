@@ -1,0 +1,44 @@
+.loading-bg {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(120deg, #0e1a26 0%, #1e2e3e 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.loading-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 1s;
+}
+
+.loading-logo svg {
+    animation: spin 2s linear infinite;
+}
+
+.loading-text {
+    margin-top: 1.5rem;
+    color: #00e6e6;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
