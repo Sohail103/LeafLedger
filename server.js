@@ -7,7 +7,7 @@ const {
     PrivateKey,
     AccountId,
     TopicMessageSubmitTransaction,
-    TopicId, // Add this import
+    TopicId,
     TopicCreateTransaction,
 } = require("@hashgraph/sdk");
 
@@ -33,7 +33,7 @@ app.post("/api/submit", async (req, res) => {
     };
     try {
         const send = await new TopicMessageSubmitTransaction({
-            topicId: TopicId.fromString(topicId), // <-- Fix here
+            topicId: TopicId.fromString(topicId),
             message: JSON.stringify(txn),
         }).execute(client);
         const receipt = await send.getReceipt(client);
