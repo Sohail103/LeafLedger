@@ -64,7 +64,11 @@ async function submitTransaction() {
                         }).execute(client);
 
                         const receipt = await send.getReceipt(client);
-                        console.log(`✅ Transaction submitted at ${receipt.consensusTimestamp.toString()}`);
+                        if (receipt.consensusTimestamp) {
+                            console.log(`✅ Transaction submitted at ${receipt.consensusTimestamp.toString()}`);
+                        } else {
+                            console.log("✅ Transaction submitted, but no consensus timestamp returned.");
+                        }
                     } catch (err) {
                         console.error("❌ Error submitting transaction:", err.message);
                     }
