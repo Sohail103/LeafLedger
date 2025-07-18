@@ -114,6 +114,9 @@ function App() {
         </form>
         {submitMsg && <div className="msg">{submitMsg}</div>}
       </section>
+      <footer>
+        &copy; {new Date().getFullYear()} College Fest Ledger &mdash; Powered by Hedera Hashgraph
+      </footer>
     </div>
   );
 }
