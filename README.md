@@ -85,3 +85,5 @@ The transactions can then be collected and parsed after the fest to compute the 
 ## Overall project structure
 
 ![project-structure](mermaid-chart-project-structure.png)
+
+(diagrams generated with mermaid.js)
