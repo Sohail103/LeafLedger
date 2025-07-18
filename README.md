@@ -1,4 +1,4 @@
-# LeafLedger (FinTech Hackathon Submission)
+# LeafLedger - Immutable Expense Logging for Student-led Events
 
 ## Setup
 
@@ -47,10 +47,27 @@
 - On the landing page, click on the LeafLedger logo to continue to the main screen
 - Verified working hedera topic ID: 0.0.6370391 (https://hashscan.io/testnet/topic/0.0.6370391)
 
+## Tech Stack
+
+- Backend: Node.js and Hedera SDK to create/join topics and publish/subscribe to messages on the hedera testnet
+- Frontend: React
+
+## Why LeafLedger fits the problem statement
+
+Key problems in student-led events:
+- Untracked spending
+- Delayed or missing reimbursements
+- Lack of transparency and trust
+
+LeafLedger solves this by: 
+- Public logging: Every transaction is published to a hedera topic - this makes the expense trail transparent and immutable
+- Tamper-proof: Hedera's consensus mechanism ensures no one can edit or delete records later
+- Decentralized visibility: Anyone with access to the topic ID can verify contributions without relying on a central admin like the college, therefore completely eliminating the risk of unprocessed reimbursements.
+- Event wise partitioning: Organizers and volunteers of each event can decide on a topic ID beforehand and everyone contributing logs their contribution on this topic. This way multiple topics, one for each event, allows for per-event bookkeeping.
 
 ## About Hedera Hashgraph
 
-Hedera is a public distributed ledger platform designed to offer a fast, secure, and energy-efficient alternative to traditional blockchain technologies. Unlike blockchains like Bitcoin and Ethereum that rely on Proof-of-Work (PoW) or Proof-of-Stake (PoS), Hedera is built on a unique consensus mechanism called Hashgraph.
+Hedera is a public distributed ledger platform designed to offer a fast, secure, and energy-efficient alternative to traditional blockchain technologies. Unlike blockchains like Bitcoin and Ethereum that rely on Proof-of-Work (PoW) or Proof-of-Stake (PoS), Hedera is built on a unique consensus mechanism called Hashgraph. This makes it significantly more cost-effective to implement (in our case, entirely free by using the Hedera Testnet) and far more environmentally friendly, as it avoids the energy-intensive mining required by PoW-based blockchains. 
 
 ### How Hedera Works: Hashgraph Consensus
 
