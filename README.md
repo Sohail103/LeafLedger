@@ -73,6 +73,11 @@ Hedera was chosen for several reasons:
 
 The transactions can then be collected and parsed after the fest to compute the net amount of money spent by each student and reimbursements to be paid.
 
+## Future improvements:
+
+- Better UI
+- facility to automatically collect transactions from hashscan and calculate net amount owed to each student
+
 ## Transaction flow
 
 ![transaction-flow](transaction-flow.png)
