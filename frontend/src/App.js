@@ -11,6 +11,7 @@ function App() {
   const [form, setForm] = useState({ from: "", to: "", amount: "", note: "" });
   const [loading, setLoading] = useState(false);
   const [submitMsg, setSubmitMsg] = useState("");
+  const [netAmounts, setNetAmounts] = useState(null);
   const landingTransitioning = useRef(false);
 
   useEffect(() => {
@@ -19,6 +20,57 @@ function App() {
       return () => clearTimeout(timer);
     }
   }, [stage]);
+
+  // Fetch and parse transactions from Hedera
+  const getAndParseTransactions = async () => {
+    if (!topicId) {
+      setSubmitMsg("Please enter a Topic ID.");
+      return;
+    }
+    setLoading(true);
+    setSubmitMsg("Fetching transactions...");
+    setNetAmounts(null);
+    try {
+      // Using our backend proxy for mirror node access
+      const url = `/api/topic/${topicId}/messages`;
+      const res = await fetch(url);
+      if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+      const data = await res.json();
+
+      if (!data.messages || data.messages.length === 0) {
+        setSubmitMsg("No transactions found for this topic.");
+        setLoading(false);
+        return;
+      }
+
+      const balances = {};
+
+      data.messages.forEach(msg => {
+        try {
+          // Messages are base64 encoded
+          const decodedMsg = atob(msg.message);
+          const transaction = JSON.parse(decodedMsg);
+          const { from, to, amount } = transaction;
+          const parsedAmount = parseFloat(amount);
+
+          if (isNaN(parsedAmount)) return;
+
+          // Update balances
+          balances[from] = (balances[from] || 0) - parsedAmount;
+          balances[to] = (balances[to] || 0) + parsedAmount;
+        } catch (e) {
+          console.error("Skipping malformed message:", e);
+        }
+      });
+
+      setNetAmounts(balances);
+      setSubmitMsg("Calculation complete.");
+    } catch (err) {
+      console.error("Error fetching or parsing transactions:", err);
+      setSubmitMsg("Failed to fetch or parse transactions. See console for details.");
+    }
+    setLoading(false);
+  };
 
   // Submit transaction to backend
   const submitTransaction = async (e) => {
@@ -128,6 +180,9 @@ function App() {
         <button onClick={createTopic} disabled={loading}>
           Create New Topic
         </button>
+        <button onClick={getAndParseTransactions} disabled={loading || !topicId} style={{marginLeft: "1rem"}}>
+          Calculate Net Amounts
+        </button>
         <a
           href={topicId ? `https://hashscan.io/testnet/topic/${topicId}` : "#"}
           target="_blank"
@@ -175,6 +230,31 @@ function App() {
         </form>
         {submitMsg && <div className="msg">{submitMsg}</div>}
       </section>
+
+      {netAmounts && (
+        <section className="card">
+          <h2>Net Amounts</h2>
+          <table className="results-table">
+            <thead>
+              <tr>
+                <th>Person</th>
+                <th>Net Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.entries(netAmounts).map(([person, amount]) => (
+                <tr key={person}>
+                  <td>{person}</td>
+                  <td className={amount > 0 ? "positive" : "negative"}>
+                    {amount.toFixed(2)}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
+      )}
+
       <footer>
         Sohail- FinTech Hackathon
       </footer>

@@ -47,6 +47,8 @@ app.post("/api/submit", async (req, res) => {
     }
 });
 
+const axios = require("axios");
+
 app.post("/api/create-topic", async (req, res) => {
     try {
         const tx = await new TopicCreateTransaction().execute(client);
@@ -57,5 +59,24 @@ app.post("/api/create-topic", async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 });
+
+app.get("/api/topic/:topicId/messages", async (req, res) => {
+    const { topicId } = req.params;
+    if (!topicId) {
+        return res.status(400).json({ message: "Missing Topic ID" });
+    }
+
+    try {
+        const url = `https://testnet.mirrornode.hedera.com/api/v1/topics/${topicId}/messages`;
+        const response = await axios.get(url);
+        res.status(response.status).json(response.data);
+    } catch (error) {
+        console.error("Error fetching from Hedera Mirror Node:", error.response ? error.response.data : error.message);
+        const status = error.response ? error.response.status : 500;
+        const message = error.response ? error.response.data : "Failed to fetch data from Hedera Mirror Node.";
+        res.status(status).json({ message });
+    }
+});
+
 
 app.listen(3001, () => console.log("Backend running on http://localhost:3001"));
