@@ -3,7 +3,6 @@ import "./hedera-theme.css";
 import LoadingScreen from "./LoadingScreen";
 import LandingPage from "./LandingPage"; // Import your animated landing page
 import FadeTransition from "./FadeTransition";
-import MouseTrace from "./MouseTrace";
 
 function App() {
   const [stage, setStage] = useState("loading"); // "loading", "landing", "main"
@@ -130,7 +129,6 @@ function App() {
   // Main form UI
   return (
     <div className="hedera-app">
-      {/* <MouseTrace /> */}
       <div className="blockchain-side blockchain-left">
         {blocks.map((_, i) => (
           <div
@@ -180,7 +178,7 @@ function App() {
         <button onClick={createTopic} disabled={loading}>
           Create New Topic
         </button>
-        <button onClick={getAndParseTransactions} disabled={loading || !topicId} style={{marginLeft: "1rem"}}>
+        <button onClick={getAndParseTransactions} disabled={loading || !topicId}>
           Calculate Net Amounts
         </button>
         <a

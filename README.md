@@ -94,7 +94,7 @@ The transactions can then be collected and parsed after the fest to compute the 
 ## Future improvements:
 
 - a better UI
-- facility to automatically collect transactions from the hedera mirror node REST APIs and calculate net amount owed to each student
+- facility to automatically collect transactions from the hedera mirror node REST APIs and calculate net amount owed to each student (completed and added the feature)
 
 ## Transaction flow
 
