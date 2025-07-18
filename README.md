@@ -76,7 +76,7 @@ The transactions can then be collected and parsed after the fest to compute the 
 
 ## Future improvements:
 
-- fix ugly UI
+- apologies for insanely bloated ui
 - facility to automatically collect transactions from the hedera mirror node REST APIs and calculate net amount owed to each student
 
 ## Transaction flow
@@ -88,4 +88,3 @@ The transactions can then be collected and parsed after the fest to compute the 
 ![project-structure](mermaid-chart-project-structure.png)
 
 (diagrams generated with mermaid.js)
-(apologies for insanely bloated ui)
