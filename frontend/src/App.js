@@ -61,6 +61,18 @@ function App() {
 
   return (
     <div className="hedera-app">
+      <div className="blockchain-side blockchain-left">
+        <div className="blockchain-block"></div>
+        <div className="blockchain-block"></div>
+        <div className="blockchain-block"></div>
+        <div className="blockchain-block"></div>
+      </div>
+      <div className="blockchain-side blockchain-right">
+        <div className="blockchain-block"></div>
+        <div className="blockchain-block"></div>
+        <div className="blockchain-block"></div>
+        <div className="blockchain-block"></div>
+      </div>
       <header>
         <h1>College Fest Ledger</h1>
         <p>Powered by Hedera Hashgraph</p>
@@ -124,7 +136,7 @@ function App() {
         {submitMsg && <div className="msg">{submitMsg}</div>}
       </section>
       <footer>
-        &copy; {new Date().getFullYear()} College Fest Ledger &mdash; Powered by Hedera Hashgraph
+        Sohail- FinTech Hackathon
       </footer>
     </div>
   );

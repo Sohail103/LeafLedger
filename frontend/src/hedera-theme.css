@@ -1,56 +1,114 @@
 body,
 .hedera-app {
-    background: linear-gradient(120deg, #0e1a26 0%, #1e2e3e 100%);
-    color: #eaf6fb;
+    background: linear-gradient(120deg, #181818 0%, #232323 100%);
+    color: #fff3e0;
     font-family: 'Segoe UI', 'Roboto', sans-serif;
     min-height: 100vh;
     margin: 0;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.blockchain-side {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.blockchain-left {
+    left: 0;
+    background: transparent;
+}
+
+.blockchain-right {
+    right: 0;
+    background: transparent;
+}
+
+.blockchain-block {
+    width: 56px;
+    height: 56px;
+    margin: 24px auto;
+    border-radius: 16px;
+    background: rgba(255, 140, 0, 0.12);
+    border: 2px solid #ff9800;
+    box-shadow: 0 4px 24px #ff980033, 0 0 0 4px #23232344 inset;
+    backdrop-filter: blur(6px);
+    animation: floatBlock 3s infinite ease-in-out;
+}
+
+.blockchain-block:nth-child(2n) {
+    animation-delay: 1.5s;
+    background: rgba(255, 140, 0, 0.18);
+}
+
+.blockchain-block:nth-child(3n) {
+    animation-delay: 2.2s;
+    background: rgba(255, 140, 0, 0.25);
+}
+
+@keyframes floatBlock {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(20px) scale(1.05);
+    }
 }
 
 header {
     text-align: center;
-    padding: 3rem 0 2rem 0;
-    background: rgba(14, 26, 38, 0.95);
-    border-bottom: 2px solid #00e6e6;
-    box-shadow: 0 4px 24px #0003;
+    padding: 2.5rem 0 1.5rem 0;
+    background: rgba(24, 24, 24, 0.92);
+    border-bottom: 2px solid #ff9800;
+    box-shadow: 0 4px 24px #ff980022;
     border-radius: 0 0 32px 32px;
+    position: relative;
+    z-index: 2;
 }
 
 header h1 {
     font-size: 2.8rem;
     letter-spacing: 3px;
     margin-bottom: 0.5rem;
-    color: #00e6e6;
+    color: #ff9800;
     font-weight: 700;
-    text-shadow: 0 2px 12px #00e6e633;
+    text-shadow: 0 2px 12px #ff980033;
 }
 
 header p {
     font-size: 1.2rem;
-    color: #eaf6fb;
+    color: #fff3e0;
     margin: 0;
     opacity: 0.8;
 }
 
 .card {
-    background: rgba(14, 26, 38, 0.85);
+    background: rgba(24, 24, 24, 0.85);
     margin: 2.5rem auto;
     padding: 2.5rem 2rem;
     border-radius: 32px;
     max-width: 500px;
-    box-shadow: 0 8px 40px #0005;
-    backdrop-filter: blur(12px);
-    border: 1px solid #00e6e644;
+    box-shadow: 0 8px 40px #ff980033, 0 0 0 8px #ff980022 inset;
+    border: 2px solid #ff9800;
     transition: box-shadow 0.3s, border 0.3s;
+    position: relative;
+    z-index: 2;
 }
 
 .card:hover {
-    box-shadow: 0 16px 48px #00e6e655;
-    border: 1px solid #00e6e6;
+    box-shadow: 0 16px 48px #ff980055, 0 0 0 12px #ff980044 inset;
+    border: 2px solid #ffa726;
 }
 
 .card h2 {
-    color: #00e6e6;
+    color: #ff9800;
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
@@ -66,38 +124,39 @@ button {
     width: 100%;
     font-size: 1.1rem;
     background: rgba(255, 255, 255, 0.06);
-    color: #eaf6fb;
+    color: #fff3e0;
     transition: background 0.2s, box-shadow 0.2s, border 0.2s;
-    box-shadow: 0 2px 12px #0002;
+    box-shadow: 0 2px 12px #ff980022;
 }
 
 input:focus {
     outline: none;
-    background: rgba(0, 230, 230, 0.12);
-    box-shadow: 0 0 0 2px #00e6e6;
-    border: 1px solid #00e6e6;
+    background: rgba(255, 152, 0, 0.12);
+    box-shadow: 0 0 0 2px #ff9800;
+    border: 1px solid #ff9800;
 }
 
 button {
-    background: linear-gradient(90deg, #00e6e6 0%, #1e2e3e 100%);
-    color: #0e1a26;
+    background: linear-gradient(90deg, #ff9800 0%, #232323 100%);
+    color: #181818;
     cursor: pointer;
     font-weight: bold;
     margin-top: 1rem;
     letter-spacing: 1px;
-    box-shadow: 0 2px 12px #00e6e622;
-    border: 1px solid #00e6e6;
+    box-shadow: 0 2px 12px #ff980022;
+    border: 1px solid #ff9800;
+    transition: background 0.2s, color 0.2s;
 }
 
 button:hover:not(:disabled) {
-    background: linear-gradient(90deg, #1e2e3e 0%, #00e6e6 100%);
-    color: #eaf6fb;
-    box-shadow: 0 4px 24px #00e6e644;
-    border: 1px solid #eaf6fb;
+    background: linear-gradient(90deg, #232323 0%, #ff9800 100%);
+    color: #fff3e0;
+    box-shadow: 0 4px 24px #ff980044;
+    border: 1px solid #fff3e0;
 }
 
 button:disabled {
-    background: #1e2e3e;
+    background: #232323;
     cursor: not-allowed;
     opacity: 0.7;
     color: #888;
@@ -105,7 +164,7 @@ button:disabled {
 }
 
 a {
-    color: #00e6e6;
+    color: #ff9800;
     text-decoration: none;
     display: block;
     margin-top: 0.75rem;
@@ -114,7 +173,7 @@ a {
 }
 
 a:hover {
-    color: #eaf6fb;
+    color: #fff3e0;
     text-decoration: underline;
 }
 
@@ -124,35 +183,37 @@ ul {
 }
 
 li {
-    background: rgba(30, 46, 62, 0.85);
+    background: rgba(40, 40, 40, 0.85);
     margin: 0.5rem 0;
     padding: 1rem;
     border-radius: 16px;
-    box-shadow: 0 2px 12px #0002;
-    color: #eaf6fb;
+    box-shadow: 0 2px 12px #ff980022;
+    color: #fff3e0;
 }
 
 footer {
     text-align: center;
     padding: 2rem;
-    background: rgba(14, 26, 38, 0.95);
-    border-top: 2px solid #00e6e6;
+    background: rgba(24, 24, 24, 0.95);
+    border-top: 2px solid #ff9800;
     margin-top: 3rem;
     border-radius: 32px 32px 0 0;
-    color: #eaf6fb;
+    color: #ff9800;
     font-size: 1.1rem;
-    box-shadow: 0 -4px 24px #0003;
+    box-shadow: 0 -4px 24px #ff980022;
     opacity: 0.95;
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+    letter-spacing: 2px;
 }
 
 .msg {
     margin-top: 1.2rem;
-    color: #00e6e6;
+    color: #ff9800;
     font-weight: bold;
     font-size: 1.1rem;
     text-align: center;
-    background: rgba(0, 230, 230, 0.08);
+    background: rgba(255, 152, 0, 0.08);
     border-radius: 10px;
     padding: 0.7rem;
-    box-shadow: 0 2px 12px #00e6e622;
+    box-shadow: 0 2px 12px #ff980022;
 }
