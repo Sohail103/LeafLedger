@@ -6,8 +6,8 @@
 
 2. Clone the repo:
    ```
-   git clone https://github.com/Sohail103/sohail-fintech-hackathon-submission.git
-   cd sohail-fintech-hackathon-submission
+   git clone https://github.com/Sohail103/LeafLedger.git
+   cd LeafLedger
    ```
 
 3. Install backend dependencies:
