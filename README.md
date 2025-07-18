@@ -22,7 +22,7 @@
    cd ..
    ```
 
-5. Create a `.env` file in the root with your Hedera credentials:
+5. Create a `.env` file in the root with your Hedera credentials (or rename the .env.example file to .env and fill in your credentials):
    ```
    OPERATOR_ID=0.0.xxxxxxx
    OPERATOR_KEY=302e020100300506032b657004220420xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
