@@ -36,9 +36,9 @@ body,
     width: 56px;
     height: 56px;
     border-radius: 16px;
-    background: rgba(255, 140, 0, 0.12);
-    border: 2px solid #ff9800;
-    box-shadow: 0 4px 24px #ff980033, 0 0 0 4px #23232344 inset;
+    background: rgba(0, 255, 102, 0.12);
+    border: 2px solid #00ff66;
+    box-shadow: 0 4px 24px #00ff6633, 0 0 0 4px #23232344 inset;
     backdrop-filter: blur(6px);
     animation: floatBlock 3s infinite ease-in-out;
     margin: 0 auto;
@@ -46,12 +46,12 @@ body,
 
 .blockchain-block:nth-child(2n) {
     animation-delay: 1.5s;
-    background: rgba(255, 140, 0, 0.18);
+    background: rgba(0, 255, 102, 0.18);
 }
 
 .blockchain-block:nth-child(3n) {
     animation-delay: 2.2s;
-    background: rgba(255, 140, 0, 0.25);
+    background: rgba(0, 255, 102, 0.25);
 }
 
 @keyframes floatBlock {

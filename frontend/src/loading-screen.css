@@ -1,7 +1,7 @@
 .loading-bg {
     position: fixed;
     inset: 0;
-    background: linear-gradient(120deg, #181818 0%, #232323 100%);
+    background: linear-gradient(120deg, #0a0a0a 0%, #1a1a1a 100%);
     display: flex;
     align-items: center;
     justify-content: center;
