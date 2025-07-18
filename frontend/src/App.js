@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import "./hedera-theme.css";
 import LoadingScreen from "./LoadingScreen";
 import LandingPage from "./LandingPage"; // Import your animated landing page
+import FadeTransition from "./FadeTransition";
+import MouseTrace from "./MouseTrace";
 
 function App() {
   const [stage, setStage] = useState("loading"); // "loading", "landing", "main"
@@ -70,12 +72,13 @@ function App() {
     setStage("main");
   };
 
-  if (stage === "loading") return <LoadingScreen />;
-  if (stage === "landing") return <LandingPage onScrollDown={handleLandingFinish} />;
+  if (stage === "loading") return <FadeTransition><LoadingScreen /></FadeTransition>;
+  if (stage === "landing") return <FadeTransition><LandingPage onScrollDown={handleLandingFinish} /></FadeTransition>;
 
   // Main form UI
   return (
     <div className="hedera-app">
+      {/* <MouseTrace /> */}
       <div className="blockchain-side blockchain-left">
         {blocks.map((_, i) => (
           <div
@@ -85,10 +88,10 @@ function App() {
               animationDelay: `${(i % 3) * 0.7}s`,
               background:
                 i % 3 === 0
-                  ? "rgba(255, 140, 0, 0.12)"
+                  ? "rgba(0, 255, 102, 0.12)"
                   : i % 3 === 1
-                    ? "rgba(255, 140, 0, 0.18)"
-                    : "rgba(255, 140, 0, 0.25)",
+                    ? "rgba(0, 255, 102, 0.18)"
+                    : "rgba(0, 255, 102, 0.25)",
             }}
           />
         ))}
@@ -102,10 +105,10 @@ function App() {
               animationDelay: `${(i % 3) * 0.7}s`,
               background:
                 i % 3 === 0
-                  ? "rgba(255, 140, 0, 0.12)"
+                  ? "rgba(0, 255, 102, 0.12)"
                   : i % 3 === 1
-                    ? "rgba(255, 140, 0, 0.18)"
-                    : "rgba(255, 140, 0, 0.25)",
+                    ? "rgba(0, 255, 102, 0.18)"
+                    : "rgba(0, 255, 102, 0.25)",
             }}
           />
         ))}
