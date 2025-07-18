@@ -16,6 +16,10 @@ body,
     width: 80px;
     z-index: 1;
     pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 12px 0;
 }
 
 .blockchain-left {
@@ -31,13 +35,13 @@ body,
 .blockchain-block {
     width: 56px;
     height: 56px;
-    margin: 24px auto;
     border-radius: 16px;
     background: rgba(255, 140, 0, 0.12);
     border: 2px solid #ff9800;
     box-shadow: 0 4px 24px #ff980033, 0 0 0 4px #23232344 inset;
     backdrop-filter: blur(6px);
     animation: floatBlock 3s infinite ease-in-out;
+    margin: 0 auto;
 }
 
 .blockchain-block:nth-child(2n) {

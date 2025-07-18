@@ -57,21 +57,45 @@ function App() {
     setLoading(false);
   };
 
+  const blocks = Array.from({ length: 12 });
+
   if (showLoader) return <LoadingScreen />;
 
   return (
     <div className="hedera-app">
       <div className="blockchain-side blockchain-left">
-        <div className="blockchain-block"></div>
-        <div className="blockchain-block"></div>
-        <div className="blockchain-block"></div>
-        <div className="blockchain-block"></div>
+        {blocks.map((_, i) => (
+          <div
+            key={i}
+            className="blockchain-block"
+            style={{
+              animationDelay: `${(i % 3) * 0.7}s`,
+              background:
+                i % 3 === 0
+                  ? "rgba(255, 140, 0, 0.12)"
+                  : i % 3 === 1
+                    ? "rgba(255, 140, 0, 0.18)"
+                    : "rgba(255, 140, 0, 0.25)",
+            }}
+          />
+        ))}
       </div>
       <div className="blockchain-side blockchain-right">
-        <div className="blockchain-block"></div>
-        <div className="blockchain-block"></div>
-        <div className="blockchain-block"></div>
-        <div className="blockchain-block"></div>
+        {blocks.map((_, i) => (
+          <div
+            key={i}
+            className="blockchain-block"
+            style={{
+              animationDelay: `${(i % 3) * 0.7}s`,
+              background:
+                i % 3 === 0
+                  ? "rgba(255, 140, 0, 0.12)"
+                  : i % 3 === 1
+                    ? "rgba(255, 140, 0, 0.18)"
+                    : "rgba(255, 140, 0, 0.25)",
+            }}
+          />
+        ))}
       </div>
       <header>
         <h1>College Fest Ledger</h1>
