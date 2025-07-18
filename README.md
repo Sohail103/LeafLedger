@@ -49,7 +49,7 @@
 
 ## Tech Stack
 
-- Backend: Node.js and Hedera SDK to create/join topics and publish/subscribe to messages on the hedera testnet
+- Backend: Node.js and [Hedera](https://hedera.com/) SDK to create/join topics and publish/subscribe to messages on the hedera testnet
 - Frontend: React
 
 ## Why LeafLedger fits the problem statement
