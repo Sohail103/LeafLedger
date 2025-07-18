@@ -1,18 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./hedera-theme.css";
 import LoadingScreen from "./LoadingScreen";
+import LandingPage from "./LandingPage"; // Import your animated landing page
 
 function App() {
+  const [stage, setStage] = useState("loading"); // "loading", "landing", "main"
   const [topicId, setTopicId] = useState("");
   const [form, setForm] = useState({ from: "", to: "", amount: "", note: "" });
   const [loading, setLoading] = useState(false);
   const [submitMsg, setSubmitMsg] = useState("");
-  const [showLoader, setShowLoader] = useState(true);
+  const landingTransitioning = useRef(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowLoader(false), 3000);
-    return () => clearTimeout(timer);
-  }, []);
+    if (stage === "loading") {
+      const timer = setTimeout(() => setStage("landing"), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [stage]);
 
   // Submit transaction to backend
   const submitTransaction = async (e) => {
@@ -59,8 +63,17 @@ function App() {
 
   const blocks = Array.from({ length: 12 });
 
-  if (showLoader) return <LoadingScreen />;
+  // Handle transition from landing page to main form
+  const handleLandingFinish = () => {
+    if (landingTransitioning.current) return;
+    landingTransitioning.current = true;
+    setStage("main");
+  };
 
+  if (stage === "loading") return <LoadingScreen />;
+  if (stage === "landing") return <LandingPage onScrollDown={handleLandingFinish} />;
+
+  // Main form UI
   return (
     <div className="hedera-app">
       <div className="blockchain-side blockchain-left">
