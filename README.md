@@ -44,6 +44,7 @@
   ```
 
 - Open [http://localhost:3000](http://localhost:3000) in your browser.
+- On the landing page, click on the LeafLedger logo to continue to the main screen
 - Verified working hedera topic ID: 0.0.6370391 (https://hashscan.io/testnet/topic/0.0.6370391)
 
 
