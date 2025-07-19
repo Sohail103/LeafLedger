@@ -76,6 +76,15 @@ Hedera is a public distributed ledger platform designed to offer a fast, secure,
 Instead of using a traditional SQL based database, this project uses hedera hashgraph, a distributed ledger, to store all transaction data. This is because traditional local SQL databases can be easily tampered or manipulated behind the scenes by whoever has access to the main server storing the SQL data. In contrast, distributed ledgers provide immutable, append-only records making them ideal for applications involving money and trust. Every transaction on hedera is public and traceable to the account ID that submitted it. While account numbers are currently hardcoded via environment variables this still alows for clear accountability. 
 If an error is made like logging an incorrect amount, the reverse transaction can simply be submitted with a note explaining the correction which can be verified as correct if it comes from the same account that made the faulty transaction. The logic for calculating the final amounts owed to everyone would then compute the correct amount for each person.
 
+## Demo Screenshots
+
+![landing-page](screenshot-1.png)
+![main-screen](screenshot-2.png)
+![transaction-submission](screenshot-3.png)
+![net-amt-calculation](screenshot-4.png)
+![topic-messages](screenshot-5.png)
+![transaction-9-details](screenshot-6.png)
+
 ### How Hedera Works: Hashgraph Consensus
 
 The Hashgraph consensus algorithm, invented by Dr. Leemon Baird, does not use blocks or mining. Instead, it uses two core ideas: **gossip about gossip** and **virtual voting**.
